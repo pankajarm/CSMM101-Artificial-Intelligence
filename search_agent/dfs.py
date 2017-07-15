@@ -14,8 +14,8 @@ def DFS(state):
         node = frontier.pop()
         explored.add(node)
         # Success
-        if state.goalTest(node):
-            return
+        if state.gisGoalState:
+            return node
 
         for neighbor in node.neighbors:
             if neighbor not in frontier and neighbor in explored:

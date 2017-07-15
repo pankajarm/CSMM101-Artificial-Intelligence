@@ -18,7 +18,7 @@ def BFS(state):
         # Second, we check the state against the goal state to determine
         #  if a solution has been found.
         # Success
-        if state.goalTest(node):
+        if state.isGoalState:
             return node
 
         # Finally, if the result of the check is negative, we then expand the node.
@@ -27,7 +27,7 @@ def BFS(state):
         #  Note that if these successor nodes are already in the frontier,
         #  or have already been visited, then they should not be added to the
         #  frontier again.
-        for neighbor in node.neighbors:
+        for neighbor in state.getSuccessors(node):
             if neighbor not in frontier and neighbor in explored:
                 frontier.push(neighbor)
 
